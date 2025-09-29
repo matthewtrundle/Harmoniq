@@ -5,19 +5,19 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 
 interface ParallaxSectionProps {
   children: React.ReactNode
-  offset?: [string, string]
+  offset?: any
   className?: string
 }
 
-export default function ParallaxSection({ 
-  children, 
+export default function ParallaxSection({
+  children,
   offset = ["start end", "end start"],
   className = ""
 }: ParallaxSectionProps) {
   const ref = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset
+    offset: offset as any
   })
 
   const y = useTransform(scrollYProgress, [0, 1], [100, -100])

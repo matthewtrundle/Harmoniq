@@ -5,15 +5,7 @@ import { useState } from 'react'
 import Image from 'next/image'
 
 export default function PortfolioGallery() {
-  const [activeCategory, setActiveCategory] = useState('all')
   const [hoveredItem, setHoveredItem] = useState<number | null>(null)
-
-  const categories = [
-    { id: 'all', label: 'All Projects', count: 12 },
-    { id: 'therapy', label: 'Therapy Practices', count: 5 },
-    { id: 'pediatric', label: 'Pediatrics', count: 3 },
-    { id: 'wellness', label: 'Wellness Centers', count: 4 }
-  ]
 
   const projects = [
     {
@@ -23,70 +15,13 @@ export default function PortfolioGallery() {
       type: 'Mental Health Practice',
       description: 'Complete digital transformation with patient portal and e-learning',
       image: '/images/portfolio/bloom.jpg',
-      results: ['40% increase in new patients', '30% reduction in admin time', 'HIPAA compliant portal'],
+      results: ['Beautiful patient-focused website', 'Integrated patient portal', 'HIPAA compliant infrastructure'],
       color: 'from-purple-600 to-indigo-600',
-      testimonial: 'Harmoniq transformed how we connect with patients online.'
-    },
-    {
-      id: 2,
-      title: 'Mindful Pediatrics',
-      category: 'pediatric',
-      type: 'Pediatric Practice',
-      description: 'Family-friendly website with online scheduling and parent resources',
-      image: '/images/portfolio/pediatrics.jpg',
-      results: ['60% online bookings', '95% patient satisfaction', 'Mobile-first design'],
-      color: 'from-teal-600 to-cyan-600',
-      testimonial: 'Parents love the convenience of our new portal.'
-    },
-    {
-      id: 3,
-      title: 'Serenity Therapy Group',
-      category: 'therapy',
-      type: 'Group Practice',
-      description: 'Multi-therapist platform with individual provider pages',
-      image: '/images/portfolio/serenity.jpg',
-      results: ['8 therapist profiles', 'Unified booking system', 'Stripe payments integrated'],
-      color: 'from-emerald-600 to-green-600',
-      testimonial: 'Our practice finally has a professional online presence.'
-    },
-    {
-      id: 4,
-      title: 'Wellness360',
-      category: 'wellness',
-      type: 'Integrative Wellness',
-      description: 'Holistic health center with course platform and membership portal',
-      image: '/images/portfolio/wellness360.jpg',
-      results: ['$50K in course sales', '200+ active members', 'Automated workflows'],
-      color: 'from-amber-600 to-orange-600',
-      testimonial: 'The e-learning platform has been a game-changer for us.'
-    },
-    {
-      id: 5,
-      title: 'Family First Therapy',
-      category: 'therapy',
-      type: 'Family Counseling',
-      description: 'Warm, inviting design with secure family portals',
-      image: '/images/portfolio/familyfirst.jpg',
-      results: ['Secure family accounts', 'Telehealth integration', '50% faster intake'],
-      color: 'from-rose-600 to-pink-600',
-      testimonial: 'Families feel welcomed before they even walk in the door.'
-    },
-    {
-      id: 6,
-      title: 'Little Steps Pediatric',
-      category: 'pediatric',
-      type: 'Pediatric Therapy',
-      description: 'Playful, engaging website for developmental therapy practice',
-      image: '/images/portfolio/littlesteps.jpg',
-      results: ['Interactive resources', 'Parent education portal', 'SimplePractice sync'],
-      color: 'from-violet-600 to-purple-600',
-      testimonial: 'Parents and kids both love our new website!'
+      testimonial: 'Built from the ground up with modern healthcare needs in mind.'
     }
   ]
 
-  const filteredProjects = activeCategory === 'all'
-    ? projects
-    : projects.filter(p => p.category === activeCategory)
+  const filteredProjects = projects
 
   return (
     <section className="py-24 bg-gradient-to-b from-white to-gray-50">
@@ -103,40 +38,21 @@ export default function PortfolioGallery() {
             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd"/>
             </svg>
-            Real Transformations
+            Our Platform in Action
           </div>
 
           <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-            Practice Success Stories
+            Bloom Psychology
           </h2>
 
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-12">
-            Every practice is unique. See how we've helped healthcare providers create
-            beautiful, functional websites that actually grow their practices.
+            See how we built our own mental health practice platform from the ground up,
+            creating the foundation that now powers Harmoniq AI's services.
           </p>
-
-          {/* Category Filter */}
-          <div className="flex flex-wrap justify-center gap-4">
-            {categories.map((cat) => (
-              <motion.button
-                key={cat.id}
-                onClick={() => setActiveCategory(cat.id)}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className={`px-6 py-3 rounded-full font-medium transition-all ${
-                  activeCategory === cat.id
-                    ? 'bg-gradient-to-r from-teal-600 to-purple-600 text-white shadow-lg'
-                    : 'bg-white text-gray-700 border border-gray-200 hover:border-gray-300'
-                }`}
-              >
-                {cat.label} <span className="text-sm opacity-75">({cat.count})</span>
-              </motion.button>
-            ))}
-          </div>
         </motion.div>
 
-        {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Single Project Display */}
+        <div className="max-w-4xl mx-auto">
           {filteredProjects.map((project, index) => (
             <motion.div
               key={project.id}
@@ -146,10 +62,10 @@ export default function PortfolioGallery() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               onMouseEnter={() => setHoveredItem(project.id)}
               onMouseLeave={() => setHoveredItem(null)}
-              className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden"
+              className="group relative bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden"
             >
               {/* Image Container */}
-              <div className="relative h-64 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
+              <div className="relative h-80 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
                 <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-80`} />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-white text-center p-6">
@@ -223,7 +139,7 @@ export default function PortfolioGallery() {
             Ready to Transform Your Practice?
           </h3>
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Join these successful practices. Let's create something beautiful together.
+            Let's build something as powerful as Bloom Psychology for your practice.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
@@ -236,10 +152,10 @@ export default function PortfolioGallery() {
               </svg>
             </a>
             <a
-              href="/portfolio"
+              href="/services"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-gray-900 font-medium rounded-full border-2 border-gray-200 hover:border-gray-300 transition-all duration-300"
             >
-              View Full Portfolio
+              Explore Our Services
             </a>
           </div>
         </motion.div>

@@ -54,24 +54,19 @@ export default function FooterMinimal() {
           </h2>
 
           <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-start md:items-end justify-between">
-            {/* Contact info */}
+            {/* CTA */}
             <div className="space-y-4">
-              <Link href="mailto:hello@harmoniq.ai">
+              <Link href="/contact">
                 <motion.div
                   whileHover={{ x: 10 }}
                   className="text-2xl md:text-3xl font-elegant text-gray-600 hover:text-gray-900 transition-colors"
                 >
-                  hello@harmoniq.ai →
+                  Start Your Transformation →
                 </motion.div>
               </Link>
-              <Link href="tel:+1234567890">
-                <motion.div
-                  whileHover={{ x: 10 }}
-                  className="text-2xl md:text-3xl font-elegant text-gray-600 hover:text-gray-900 transition-colors"
-                >
-                  +1 (234) 567-890 →
-                </motion.div>
-              </Link>
+              <p className="text-gray-500 text-sm max-w-xs">
+                Ready to transform your practice? Let's discuss how we can help.
+              </p>
             </div>
 
             {/* Quick links */}

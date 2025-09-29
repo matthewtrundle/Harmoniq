@@ -354,33 +354,45 @@ export default function ContactPage() {
                 transition={{ delay: 0.3 }}
                 className="space-y-8"
               >
-                {/* Direct Contact */}
+                {/* Why Choose Us */}
                 <div className="bg-gradient-to-br from-teal-600 to-purple-600 rounded-3xl p-8 text-white">
-                  <h3 className="text-2xl font-bold mb-6">Prefer to Talk?</h3>
+                  <h3 className="text-2xl font-bold mb-6">Why Choose Harmoniq AI?</h3>
                   <div className="space-y-4">
-                    <a href="tel:1-888-HARMONIQ" className="flex items-center gap-4 group">
-                      <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-white/30 transition-colors">
-                        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    <div className="flex items-start gap-4">
+                      <div className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                        <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                         </svg>
                       </div>
                       <div>
-                        <p className="text-white/80 text-sm">Call us</p>
-                        <p className="font-semibold text-lg">1-888-HARMONIQ</p>
+                        <p className="font-semibold mb-1">Built on Real Experience</p>
+                        <p className="text-white/80 text-sm">We operate Bloom Psychology, so we understand your needs</p>
                       </div>
-                    </a>
+                    </div>
 
-                    <a href="mailto:hello@harmoniq.ai" className="flex items-center gap-4 group">
-                      <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-white/30 transition-colors">
-                        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    <div className="flex items-start gap-4">
+                      <div className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                        <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                         </svg>
                       </div>
                       <div>
-                        <p className="text-white/80 text-sm">Email us</p>
-                        <p className="font-semibold text-lg">hello@harmoniq.ai</p>
+                        <p className="font-semibold mb-1">HIPAA Compliant</p>
+                        <p className="text-white/80 text-sm">Security and compliance built into every solution</p>
                       </div>
-                    </a>
+                    </div>
+
+                    <div className="flex items-start gap-4">
+                      <div className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                        <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                        </svg>
+                      </div>
+                      <div>
+                        <p className="font-semibold mb-1">Full Support</p>
+                        <p className="text-white/80 text-sm">We're here to help you succeed every step of the way</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
 

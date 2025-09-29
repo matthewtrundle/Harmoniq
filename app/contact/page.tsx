@@ -18,7 +18,7 @@ export default function ContactPage() {
     phone: '',
     practiceType: '',
     currentWebsite: '',
-    services: [],
+    services: [] as string[],
     timeline: '',
     budget: '',
     message: ''

@@ -220,25 +220,26 @@ export default function HeroArtistic() {
             </motion.div>
           </motion.div>
 
-          {/* Right side - Video showcase */}
+          {/* Right side - Video showcase - Mobile optimized */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.3 }}
-            className="relative"
+            className="relative w-full max-w-md lg:max-w-lg mx-auto"
           >
-            <div className="relative bg-white/90 backdrop-blur-xl rounded-3xl shadow-2xl p-6 lg:p-10 border border-gray-100">
+            <div className="relative bg-white/90 backdrop-blur-xl rounded-2xl lg:rounded-3xl shadow-2xl p-3 md:p-4 lg:p-6 border border-gray-100">
               {/* Decorative gradient border */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 rounded-3xl opacity-10" />
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 rounded-2xl lg:rounded-3xl opacity-10" />
 
-              {/* Video player */}
-              <div className="relative rounded-2xl overflow-hidden aspect-video">
+              {/* Video player - Mobile optimized with taller desktop view */}
+              <div className="relative rounded-xl lg:rounded-2xl overflow-hidden aspect-video lg:aspect-[4/5] bg-white">
                 <video
                   autoPlay
                   muted
                   loop
                   playsInline
-                  className="w-full h-full object-cover"
+                  preload="metadata"
+                  className="w-full h-full object-contain"
                 >
                   <source src="/videos/harmoniq-hero.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
@@ -246,9 +247,9 @@ export default function HeroArtistic() {
               </div>
 
               {/* Caption */}
-              <div className="mt-4 text-center space-y-2">
-                <p className="text-sm font-elegant text-gray-700 font-medium">Healthcare Digital Transformation</p>
-                <Link href="/work" className="text-sm text-teal-600 hover:text-teal-700 font-medium underline">
+              <div className="mt-2 md:mt-3 text-center space-y-1">
+                <p className="text-xs md:text-sm font-elegant text-gray-700 font-medium">Healthcare Digital Transformation</p>
+                <Link href="/work" className="text-xs md:text-sm text-teal-600 hover:text-teal-700 font-medium underline">
                   View Portfolio →
                 </Link>
               </div>

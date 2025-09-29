@@ -128,8 +128,8 @@ export default function HeroArtistic() {
               <span className="text-sm font-medium text-gray-700">Therapy • Pediatrics • Small Practices</span>
             </motion.div>
 
-            {/* Main headline - Enhanced readability */}
-            <div className="relative">
+            {/* Main headline - Enhanced readability with fixed height */}
+            <div className="relative h-[80px] md:h-[90px] lg:h-[100px] flex items-center">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentPhrase}
@@ -137,8 +137,9 @@ export default function HeroArtistic() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -30 }}
                   transition={{ duration: 0.6 }}
+                  className="absolute inset-0 flex items-center"
                 >
-                  <h1 className="text-[clamp(48px,5vw,72px)] font-luxury font-bold leading-[1.1] tracking-tight text-gray-900">
+                  <h1 className="text-[clamp(48px,5vw,72px)] font-luxury font-bold leading-[1.1] tracking-tight text-gray-900 whitespace-nowrap">
                     {phrases[currentPhrase]}
                   </h1>
                 </motion.div>
@@ -219,7 +220,7 @@ export default function HeroArtistic() {
             </motion.div>
           </motion.div>
 
-          {/* Right side - Laptop mockup carousel */}
+          {/* Right side - Video showcase */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -230,23 +231,23 @@ export default function HeroArtistic() {
               {/* Decorative gradient border */}
               <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 rounded-3xl opacity-10" />
 
-              {/* Image carousel - Larger */}
-              <div className="relative rounded-2xl overflow-hidden aspect-[16/10] lg:aspect-[16/11]">
-                <CyclingBackground
-                  images={[
-                    '/images/ai/mockup-desk-modern.png',
-                    '/images/ai/mockup-office-bright.png',
-                    '/images/ai/mockup-studio-purple.png',
-                    '/images/ai/mockup-executive.png'
-                  ]}
-                  interval={10000}  // Slowed down to 10 seconds per image
-                  overlay={false}
-                />
+              {/* Video player */}
+              <div className="relative rounded-2xl overflow-hidden aspect-video">
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="w-full h-full object-cover"
+                >
+                  <source src="/videos/harmoniq-hero.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
               </div>
 
               {/* Caption */}
               <div className="mt-4 text-center space-y-2">
-                <p className="text-sm font-elegant text-gray-700 font-medium">Real practice transformations</p>
+                <p className="text-sm font-elegant text-gray-700 font-medium">Healthcare Digital Transformation</p>
                 <Link href="/work" className="text-sm text-teal-600 hover:text-teal-700 font-medium underline">
                   View Portfolio →
                 </Link>

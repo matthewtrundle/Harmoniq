@@ -13,7 +13,7 @@ export default function MouseFollowEffect({ videoSrc, intensity = 0.3 }: MouseFo
   const containerRef = useRef<HTMLDivElement>(null)
   const videoRef = useRef<HTMLVideoElement>(null)
   const mousePosition = useRef({ x: 0, y: 0 })
-  const animationFrame = useRef<number>()
+  const animationFrame = useRef<number | undefined>(undefined)
   const [hasVideo, setHasVideo] = useState(false)
 
   useEffect(() => {

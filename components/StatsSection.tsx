@@ -3,6 +3,7 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform, useInView, useSpring } from 'framer-motion'
 import CountUp from 'react-countup'
+import CyclingBackground from './CyclingBackground'
 
 export default function StatsSection() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -189,7 +190,7 @@ export default function StatsSection() {
             </p>
           </motion.div>
 
-          {/* Visual Element with 3D transform */}
+          {/* Visual Element with rotating images */}
           <motion.div
             style={{
               scale,
@@ -198,16 +199,58 @@ export default function StatsSection() {
             }}
             className="relative hidden lg:block"
           >
-            <div className="aspect-square rounded-3xl bg-gradient-to-br from-cyan-500/10 to-violet-500/10 backdrop-blur-sm border border-white/10 p-8">
-              <div className="w-full h-full rounded-2xl bg-slate-800/50 border border-slate-700/50 overflow-hidden flex items-center justify-center">
-                <div className="text-center space-y-4">
-                  <div className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent">
-                    Complete Growth Solutions
-                  </div>
-                  <p className="text-slate-400 text-sm uppercase tracking-wider">For Healthcare Practices</p>
-                </div>
+            {/* Glowing backdrop effect */}
+            <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 to-violet-400/20 rounded-3xl blur-3xl" />
+
+            {/* Main card container */}
+            <div className="relative aspect-square rounded-3xl bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-xl border border-slate-700/50 p-8 shadow-2xl">
+              {/* Inner gradient border effect */}
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-cyan-400/30 via-purple-500/30 to-violet-500/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+              {/* Image container with rounded corners */}
+              <div className="relative w-full h-full rounded-2xl overflow-hidden border-2 border-white/10 shadow-xl">
+                <CyclingBackground
+                  images={[
+                    '/images/ai/mockup-desk-modern.png',
+                    '/images/ai/mockup-office-bright.png',
+                    '/images/ai/mockup-studio-purple.png',
+                    '/images/ai/mockup-executive.png'
+                  ]}
+                  interval={5000}
+                  overlay={true}
+                />
               </div>
+
+              {/* Corner accent decorations */}
+              <div className="absolute top-4 left-4 w-12 h-12 border-t-2 border-l-2 border-cyan-400/50 rounded-tl-2xl" />
+              <div className="absolute bottom-4 right-4 w-12 h-12 border-b-2 border-r-2 border-violet-400/50 rounded-br-2xl" />
             </div>
+
+            {/* Floating accent orbs */}
+            <motion.div
+              animate={{
+                y: [0, -20, 0],
+                rotate: [0, 10, 0]
+              }}
+              transition={{
+                duration: 6,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              className="absolute -top-8 -right-8 w-32 h-32 bg-gradient-to-br from-cyan-400/20 to-blue-500/20 rounded-full blur-2xl"
+            />
+            <motion.div
+              animate={{
+                y: [0, 20, 0],
+                rotate: [0, -10, 0]
+              }}
+              transition={{
+                duration: 8,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              className="absolute -bottom-8 -left-8 w-32 h-32 bg-gradient-to-br from-purple-400/20 to-violet-500/20 rounded-full blur-2xl"
+            />
           </motion.div>
         </div>
 

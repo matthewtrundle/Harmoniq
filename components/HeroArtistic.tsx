@@ -239,6 +239,8 @@ export default function HeroArtistic() {
                   loop
                   playsInline
                   preload="auto"
+                  controls
+                  controlsList="nodownload"
                   webkit-playsinline="true"
                   x5-playsinline="true"
                   className="w-full h-full object-cover"

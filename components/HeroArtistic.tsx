@@ -225,20 +225,22 @@ export default function HeroArtistic() {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.3 }}
-            className="relative w-full max-w-sm lg:max-w-md mx-auto"
+            className="relative w-full max-w-xs sm:max-w-sm lg:max-w-md mx-auto"
           >
             <div className="relative bg-white/90 backdrop-blur-xl rounded-2xl lg:rounded-3xl shadow-2xl p-2 md:p-3 lg:p-4 border border-gray-100">
               {/* Decorative gradient border */}
               <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 rounded-2xl lg:rounded-3xl opacity-10" />
 
-              {/* Video player - Mobile optimized with taller desktop view */}
-              <div className="relative rounded-xl lg:rounded-2xl overflow-hidden aspect-[9/16] bg-white">
+              {/* Video player - Responsive aspect ratio */}
+              <div className="relative rounded-xl lg:rounded-2xl overflow-hidden aspect-video sm:aspect-[3/4] lg:aspect-[9/16] bg-white">
                 <video
                   autoPlay
                   muted
                   loop
                   playsInline
-                  preload="metadata"
+                  preload="auto"
+                  webkit-playsinline="true"
+                  x5-playsinline="true"
                   className="w-full h-full object-cover"
                 >
                   <source src="/videos/harmoniq-hero.mp4" type="video/mp4" />

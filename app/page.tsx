@@ -8,6 +8,7 @@ import IntegrationShowcase from '@/components/IntegrationShowcase'
 import PortfolioGallery from '@/components/PortfolioGallery'
 import NavigationMinimal from '@/components/NavigationMinimal'
 import FooterMinimal from '@/components/FooterMinimal'
+import AIOContent from '@/components/AIOContent'
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -29,6 +30,7 @@ export default function Home() {
         <ServicesMinimal />
         <IntegrationShowcase />
         <PortfolioGallery />
+        <AIOContent />
         <FooterMinimal />
       </main>
     </>

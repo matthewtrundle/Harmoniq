@@ -38,11 +38,28 @@ export default function ContactPage() {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000))
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
 
-    setSubmitted(true)
-    setIsSubmitting(false)
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to submit form')
+      }
+
+      setSubmitted(true)
+    } catch (error) {
+      console.error('Form submission error:', error)
+      alert('There was an error submitting your form. Please try again or email us directly.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -366,7 +383,7 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <p className="font-semibold mb-1">Built on Real Experience</p>
-                        <p className="text-white/80 text-sm">We operate Bloom Psychology, so we understand your needs</p>
+                        <p className="text-white/80 text-sm">Real-world healthcare platform experience means we understand your needs</p>
                       </div>
                     </div>
 
@@ -377,8 +394,8 @@ export default function ContactPage() {
                         </svg>
                       </div>
                       <div>
-                        <p className="font-semibold mb-1">HIPAA Compliant</p>
-                        <p className="text-white/80 text-sm">Security and compliance built into every solution</p>
+                        <p className="font-semibold mb-1">HIPAA-Compliant Integrations</p>
+                        <p className="text-white/80 text-sm">Seamlessly connect with HIPAA-compliant systems and platforms</p>
                       </div>
                     </div>
 
@@ -434,7 +451,7 @@ export default function ContactPage() {
                   <ul className="space-y-3">
                     {[
                       'Healthcare-specific expertise',
-                      'HIPAA-compliant solutions',
+                      'HIPAA-compliant integrations',
                       'SimplePractice & EMR integrations',
                       'Beautiful, modern designs',
                       '24/7 support included',
@@ -482,8 +499,8 @@ export default function ContactPage() {
                   a: 'Yes! We have deep integrations with SimplePractice, Practice Better, and most major EMR systems.'
                 },
                 {
-                  q: 'Is everything HIPAA compliant?',
-                  a: 'Absolutely. All our solutions are built with HIPAA compliance from the ground up, including secure hosting and data handling.'
+                  q: 'Do you provide HIPAA-compliant solutions?',
+                  a: 'We specialize in integrating with HIPAA-compliant platforms and systems. While we don\'t build HIPAA-compliant infrastructure ourselves, we ensure seamless connections to certified systems that meet all compliance requirements.'
                 },
                 {
                   q: 'What kind of ongoing support do you provide?',
